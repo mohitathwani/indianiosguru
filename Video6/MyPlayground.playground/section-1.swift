@@ -374,27 +374,151 @@ intStrings["Zero"] = 0
 intStrings["One"] = 1
 println(intStrings)
 
+//Video6
+//Control Flow Statments
+//Swift has the traditional control flow statements like "for" and "while" loops and "if" and "switch" for conditional execution of code.
+//In addition to the traditional control flow statements, swift also provides a nifty for-in loop which makes it dead simple to iterate over collections like arrays, dictionaries, strings and other sequences.
+//The switch statement in swift is very powerful as compared to it's counterpart in other languages. Cases do not automatically fall-through in the absence of a break statement, cases can match against various patterns like ranges and tuples. Cases can also have values associated with them and complex matching conditions can be expressed with a "where" clause.
 
+//For Loops:
+//Swift provides two kinds of for loops:
+//1. The traditional for loop
+//2. The for-in loop
 
+//The For-in loop
+for multiplier in 1...10 {
+    println("\(multiplier) times 3 is \(multiplier * 3)")
+}
 
+//The for-in loop can be used to iterate over elements in an array as seen before.
+//The for-in loop can also be used to iterate over characters of a string as seen before.
 
+//The For loop:
+//Swift also supports the traditional for loop.
+for var i = 0; i < 5; i++ {
+    println("The value of i is \(i)")
+}
 
+//While Loop:
+//While loop will check for condition first and then execute its contents.
+var i = 0
+while (i < 5) {
+    println(i)
+    i++
+}
 
+//Do-while loop:
+//Do-while will execute atleast once before checking the condition.
+var iA = -1
+do {
+println(iA)
+} while(iA > 0)
 
+//Conditional Statements
+//There are two conditinal statements supported by swift. The if statement and the switch-case.
 
+//If:
+//The if statement checks for a condition and if the condition evaluates to true, it will get executed. If not, the else block will get executed.
+if toBuyList.count < 3 {
+    println("You have few items left to buy")
+}
 
+else {
+    println("You're grocery list is pretty huge!")
+}
 
+//We can also chain multiple if statements like so:
+if toBuyList.count < 3 {
+    println("List is small")
+}
 
+else if toBuyList.count > 3 && toBuyList.count < 6 {
+    println("List is medium")
+}
 
+else {
+    println("The list is pretty big!")
+}
 
+//Switch Case
+//A switch statement takes the variable passed to it and compares it with several matching patterns. On finding the first appropriate match, an appropriate block of code is executed.
+let randomCharacter = "m"
+switch randomCharacter {
+    
+    case "a", "e", "i", "o", "u":
+    println("Vowel")
+    
+    case "b", "c", "d", "f", "g", "h", "m":
+    println("Consonant")
+    
+    case "0", "1", "2":
+    println("Number")
+    
+default:
+    println("Special Character")
+}
 
+//Compared to the Switch statements in C and other traditional languages, the switch in swift does not fall through if a break statement is not give.
 
+//Switch cases in swift can also be used to check for ranges:
+switch toBuyList.count {
+    
+case 0:
+    println("empty")
+    
+case 1...3:
+    println("few")
+    
+case 4...8:
+    println("a lot")
+    
+default:
+    println("You really have a lot of shoppong to do!")
+}
 
+//The switch statement in swift can also match against tuples:
+let ageheight = (22, 150)
 
+switch ageheight {
+    
+case (20...22, 160...170):
+    println("The age-height ratio is normal")
+    
+case (20...22, 140...159):
+    println("The height is abnormal")
+    
+default:
+    println("Please get yourself checked!")
+}
 
+//Control Transfer Statements:
+//Swift has four Control Transfer statements:
+//1. break
+//2. continue
+//3. fallthrough
+//4. return
 
+//We will be looking at the break and continue in this video.
 
+//Continue:
+//When used in a loop, it forces the loop to continue to the next iteration thereby skipping rest of the statements.
+for i in 1...10 {
+    if i % 2 != 0 {
+        continue
+    }
+    println(i)
+}
 
+//Break:
+//The break statement when used in a loop causes the loop to completely terminate and the control is passed to the next line of code after the loop.
+for i in 1...5 {
+    if i == 3 {
+        break
+    }
+    println(i)
+}
+
+//Note: If you use break in a switch case, the control will be transferred to the statements outside the switch.
 
 
 
