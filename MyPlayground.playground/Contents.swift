@@ -130,10 +130,11 @@ else {
 //Implicity unwrapped Optioanls
 //Sometimes, we might know for a fact that an optional will always have a value, and therefore, there's no need to check and unwrap the value every time we want to access it
 //Implicitly unwrapped optionals are declared with a ! rather than with ?
-//If somethingX was set to nil, the call to count would cause a runtime error.
-//Also notice that I do not have to unwrap the variable in the call to count as the variable is implicitly unwrapped
+//If somethingX was set to nil, the call to countElements would cause a runtime error.
+//Also notice that I do not have to unwrap the variable in the call to count() as the variable is implicitly unwrapped
 let somethingX:String! = "Hello!"
-count(somethingX)
+count(somethingX) //As of Xcode 6.3 and Swift 1.2, countElements() has been replaced by count()
+
 
 //Video3
 //Swift supports most of the standard operators available in C and also improves capabilities of some of them.

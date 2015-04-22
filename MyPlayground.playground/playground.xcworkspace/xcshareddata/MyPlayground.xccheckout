@@ -14,11 +14,11 @@
 		<string>https://github.com/mohitathwani/indianiosguru.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Video7/MyPlayground.playground</string>
+	<string>MyPlayground.playground</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>98BA7850F5796D4DCD8DDF7D8EC80CAAB6DF6757</key>
-		<string>../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/mohitathwani/indianiosguru.git</string>
