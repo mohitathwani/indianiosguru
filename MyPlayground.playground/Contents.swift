@@ -727,3 +727,117 @@ doSomethingWithClosures(2, 3.14) {
 
 //Closures as Reference Types:
 //Closures in Swift are reference types and are passed by reference. So for example, if two variables are assigned a closure, then both of them would be referencing the same closure.
+
+//Video9
+//Enumerations
+//An enum is a group of related values. Enums in Swift are very powerful as each of the enum members can have a "raw value" of type String, Character, Int, or Double.
+//Enum members in Swift can also have "associated values" and can also have computed properties which we will see in detail later and also have instance methods. Enums can also define initializers to have a default initial value and can also be extended for added functionality and can also conform to protocols.
+
+//Enum Syntax
+enum Car {
+    case Tata
+    case Honda
+    case Hyundai
+    case Mercedes
+}
+//Tata, Honda, Hyundai, Mercedes are members of the Car enum.
+//The case keyword is used to define the member values.
+//Unlike other traditional languages, enum members in Swift are not assigned default values starting from 0.
+
+//We can even use commas to declare multiple enum members on the same line.
+enum SportsBrand {
+    case Reebok, Adidas, Nike
+}
+
+//We can assign these enum members with variables and constants.
+var myFavouriteCar = Car.Honda
+let myFavSportsBrand = SportsBrand.Adidas
+
+//myFavSportsBrand is declared as a constant and it's value cannot be changed. But, myFavouriteCar is a variable and a new value from the Car enum can be assigned as:
+myFavouriteCar = .Tata
+//Swift has already inferred the type to be Car and therefore we can just use the dot syntax.
+
+//Also, if a constant or variable is explicitly declared with the enum type, we can use the dot syntax.
+var explicitCarType: Car = .Hyundai
+
+//Checking enum values with a Switch-case
+//We can use Switch-case to check what enum member was assigned to a variable or constant.
+switch myFavouriteCar {
+    
+case .Tata: // Notice the dot.
+    println("Tata")
+    
+case .Honda:
+    println("Honda")
+    
+case .Hyundai:
+    println("Hyundai")
+    
+case .Mercedes:
+    println("Mercedes")
+}
+
+//As seen in one of our previous videos, a Switch-case must be exhaustive, i.e, all the possible "cases" must be explicitly written out. If for some reason, all "cases" cannot be listed, we must put in a default clause.
+switch myFavouriteCar {
+case .Tata:
+    println("You like Indian cars!")
+    
+default:
+    println("You like foreign cars!")
+}
+
+//Associated Values
+//Enum members in Swift can have associated values of any type.
+//For example, we can redeclare our Car enum as:
+enum Car2 {
+    
+    case Tata(String, Int)
+    case Honda(String, Int)
+    case Hyundai(String, Int)
+    case Mercedes(String, Int)
+}
+
+//We can use the enum as:
+var myFavCar2 = Car2.Tata("Nano", 2015)
+
+//We use the switch-case to match against the enum values
+switch myFavCar2 {
+    
+case .Tata(let model, let year):
+    println("You like the Tata \(model), \(year)")
+    
+case .Honda(let model, let year):
+    println("You like the Honda \(model), \(year)")
+    
+case .Hyundai(let model, let year):
+    println("You like the Hyundai \(model), \(year)")
+    
+case .Mercedes(let model, let year):
+    println("You like the Mercedes \(model), \(year)")
+}
+
+//Raw Values
+//As mentioned before, Swift members by default are not assigned integers. The data type pf Swift enum members can be String, Character, Integer or Float/Double. Raw values are pre-populated values assigned to the enum members when the enum is declared.
+enum Day:Int {
+    
+    case Monday = 1
+    case Tuesday = 2
+    case Wednesday = 3
+    case Thursday = 4
+    case Friday = 5
+    case Saturday = 6
+    case Sunday = 7
+}
+
+let rawTuesday = Day.Tuesday.rawValue
+let someDay = Day(rawValue: 6)
+//someDay is a Day? and to extract the value, we can use the if-let syntax or the forced unwrap operator and then finally use a switch-case to match the values.
+switch someDay! {
+    
+case .Saturday:
+    println("Saturday")
+    
+default:
+    println("Blah!")
+    
+}
