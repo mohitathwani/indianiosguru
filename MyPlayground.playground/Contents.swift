@@ -841,3 +841,98 @@ default:
     println("Blah!")
     
 }
+
+//Video10
+//Classes and Structures
+//Classes and Structures allow you to layout the blueprint of you application's structure. Classes and structures can have properties and methods added to them to enhance functionality.
+//As compared to other programming languages, structures are very very different, for starters, structures can have their own set of properties and methods and can even have their own initializers, which is not the case in a language in like C. Structures in Swift can alse be extended and can also conform to protocols.
+
+//Declaration Syntax
+//Classes are introduced with the "class" keyword and structures are introduced with the "struct" keyword.
+struct Dimension {
+    var width = 0
+    var height = 0
+    var ppi = 0
+}
+
+class Photograph {
+    var dimension = Dimension()
+    var name: String?
+    var isGreyScale = false
+}
+//In the example above, we have a structure called Dimension and a class called Photograph.
+//The structure has three "stored properties" called width, height and ppi.
+//Stored properties are basically constants or variables that are stored as part of the class or structure and are generally initialised with an initial value.
+//The three properties in the Dimension struct are inferred to be of type Int because they are initialised to zero.
+//The class also has three stores properties, the dimension property is initialised with a new Dimension structure instance using the initialiser syntax.
+//The name property is initialised to nil as it is a string optional and isGreyScale is inferred to be of type Bool because it is initialised to false.
+
+//Creating Instances
+//To create instances of classes or structures, we can use the initialiser syntax. We have already seen how to initialise a structure above, to initialise a class and save an instance of it, we use the same syntax.
+let somePhotograph = Photograph()
+
+//This is the default initialiser syntax, we will, in a later video, see how to create custom initialisers as well.
+
+//Interacting with Properties
+//We can start interacting with properties after we have created an instance of the class or structure.
+//We use the dot syntax to interact with properties.
+println("The width of the photograph is \(somePhotograph.dimension.width), height is \(somePhotograph.dimension.height), ppi is \(somePhotograph.dimension.ppi), name is \(somePhotograph.name), and grey scale is \(somePhotograph.isGreyScale)")
+
+//The above example shows us how to get the values stored in the properties. Let's take a look at how to set them.
+//To set the values of the properties, we first use the dot syntax to access the property and then use the = operator to set the value.
+somePhotograph.dimension.width = 640
+somePhotograph.dimension.height = 960
+somePhotograph.dimension.ppi = 72
+somePhotograph.name = "Wallpaper.jpg"
+
+println("The width of the photograph is \(somePhotograph.dimension.width), height is \(somePhotograph.dimension.height), ppi is \(somePhotograph.dimension.ppi), name is \(somePhotograph.name!), and grey scale is \(somePhotograph.isGreyScale)")
+
+//Initialising structures with "Member wise" initialisers
+//All structures by default have a member wise initialiser which can be used to create and initialise the struct in one line of code itself.
+let fullHD = Dimension(width: 1920, height: 1080, ppi: 326)
+
+//Note: This is not applicable for Classes
+
+//Structures and Enumas are "Passed by Value"
+//This basically means that if structures or enums are passed around from one object to another, or passed as arguments to functions, the value of the structure or enum will be "copied" and all operations will be performed on the local copy.
+var modifiedFullHD = fullHD
+modifiedFullHD.width = 1200
+
+println("fullHD width is \(fullHD.width) and modifiedFullHD width is \(modifiedFullHD.width)")
+
+//Classes are "Passed by Reference"
+//When instancesof classes are assigned to a new constant or variable or passed as an argument to a function, they are not copied, but instead a reference to the existing instance is passed.
+let anotherPhotograph = somePhotograph
+anotherPhotograph.name = "Swift.png"
+
+println("somePhotograph name is \(somePhotograph.name!) and anotherPhotograph name is \(anotherPhotograph.name!)")
+
+//Both will now print the same value since instances of classes are passed by reference.
+
+//Identity Operators for Classes
+//Since classes are reference types, it's possible that multiple constants and variables in our code are pointing to the same reference. There are special identity operators for classes that help us determine if multiple constants/variables are pointing to the same instance.
+if somePhotograph === anotherPhotograph {
+    println("Both point to the same instance")
+}
+
+if somePhotograph !== anotherPhotograph {
+    println("Both are pointing to different instances")
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
