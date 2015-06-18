@@ -920,6 +920,125 @@ if somePhotograph !== anotherPhotograph {
     
 }
 
+//Video11
+//Properties
+//As the literal definition goes, properties add characteristics to classes, structures and enums. Swift has two kinds of properties: stored properties for storing constants and variables as part of the instance and computed properties to calculate the value of the property.
+//It's important to note that classes, structures and enums can have calculated properties, whereas only classes and structures, not enums, can have stored properties.
+//Swift also allows us to define property observers that let us monitor the changes to a property value.
+//Stored Properties
+struct Point3D {
+    var x: Int
+    var y: Int
+    let z: Int
+}
+
+var pointA = Point3D(x: 5, y: 7, z: 10)
+//So in the above example, z is declared as a constant and cannot be changed, but x and y can be changed as:
+pointA.x = 6
+
+//But for example:
+let pointB = Point3D(x: 1, y: 2, z: 3)
+//In this case, even though x and y are variables, we can't change them because pointB is a constant and structures are passed by value.
+//When a structure is declared as a constant, all it's properties are also constant. This is not true for classes as they are reference types.
+
+//Lazy Stored Properties
+//A lazy stored property is one that is not initialised until the time somebody tries to access it for the first time.
+//For a property to be initialised lazily, it should be marked with the "lazy" keyword.
+//Lazy properties are useful when the initial value of a property depends on external factors, for example, fetching values from a server, or when some complex calculations are required.
+class RSSFetcher {
+    
+    lazy var rssArray = [String]()
+    
+    func someComplexLogic() -> [String] {
+        return ["Hello", "RSS"]
+    }
+    
+    func fetchRSS() {
+        rssArray = someComplexLogic()
+        println(rssArray)
+    }
+}
+//It's obvious that lazy properties should be variables and not constants because their values will change.
+//To see it in action:
+let rssFetcher = RSSFetcher()
+rssFetcher.fetchRSS()
+
+//Computed Properties
+//As discussed before, classes, structures and enums can have computed properties along with stored properties.
+//Computed Properties are those that do not store values themselves, but provide accessors i.e getter and setter to get and set the value of the property
+struct  Circle {
+    var radius: Double = 0.0
+    let pi = 3.14
+    
+    var area: Double {
+        get {
+            return pi * radius * radius
+        }
+        
+        set {
+            radius = newValue / (pi * radius)
+        }
+    }
+}
+
+var circleX = Circle()
+circleX.radius = 5.6
+println("Area: \(circleX.area)")
+
+circleX.area = 89.5
+println("Radius: \(circleX.radius)")
+//From the above example, it is obvious that computed properties should be declared as variables and not constants.
+//We can also have read-only computed properties by only implementing the getter and not the setter.
+
+//Property Observers
+//As the name suggests, property observers respond to changes in a property's value and are called every time the value of the property is set.
+//Property observers can be added to stored properties but not to lazy properties.
+//The two property obeservers are:
+// -> willSet - called just before the value is set.
+// -> didSet - called immediately after the value is set.
+//When we implement willSet, the new value of the property is passed in with the name  "newValue". Similarly, with didSet, the old value of the property is passed in with the name "oldValue".
+class CalorieCounter {
+    
+    var totalCalorieIntake: Int = 0 {
+        willSet {
+            println("The new value is \(newValue)")
+        }
+        
+        didSet {
+            println("The old value is \(oldValue)")
+        }
+    }
+}
+
+let calCounter = CalorieCounter()
+calCounter.totalCalorieIntake = 250
+calCounter.totalCalorieIntake = 300
+//So far everything that we have seen related to properties has been applied to global properties, that are properties accessible throughout the class, so whatever we have seen can also be applied to local variables, that are variables that belong to a function, method or closure.
+
+//Type Properties
+//Upto this point, we have encountered instance properties, that are properties that belong to the instance and each and every instance that is created will have it's own copy of the properties.
+//Properties can also be created so that they belong to the type, i.e, the class, structure or enum, so that every instance created of the type are accessing the same value of the property as there can only be one copy of the property. This makes the type property universal to all instances.
+//However, it is important to note that we can have stored and computed type properties for structs and enums and only computed type properties for classes.
+//Type properties are decalred with the "static" keyword for structs and enums and with the "class" keyword for classes.
+struct ChessBoardStruct {
+    static let numOfTiles = 64
+}
+
+class ChessBoardClass {
+    
+    class var numOFTiles: Int {
+        return 64
+    }
+}
+
+println(ChessBoardStruct.numOfTiles)
+println(ChessBoardClass.numOFTiles)
+
+
+
+
+
+
 
 
 
