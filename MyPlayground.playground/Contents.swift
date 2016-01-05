@@ -21,9 +21,9 @@ y = 34
 z = 45.6789
 
 //Printing
-println(employeeID)
-println("Hardcoded Message")
-println("The employeeID is \(employeeID)")
+print(employeeID)
+print("Hardcoded Message")
+print("The employeeID is \(employeeID)")
 
 //Comments
 //This is a single line comment
@@ -76,7 +76,7 @@ let earthIsRound = true
 let rosesAreBlue = false
 
 if earthIsRound {
-    println("Earth is round")
+    print("Earth is round")
 }
 
 //Tuples
@@ -88,11 +88,11 @@ let nameX = ("Steve", "Jobs")
 
 //To decompose a tuple, we use the following:
 let (X, Y, radius) = circle
-println("X is \(X), y is \(Y), radius is \(radius)")
+print("X is \(X), y is \(Y), radius is \(radius)")
 
 //We can even name the individual elements when the tuple is defined.
 var newCircle = (x: 20, y: 30, radius: 50)
-println("\(newCircle.x), \(newCircle.y), \(newCircle.radius)")
+print("\(newCircle.x), \(newCircle.y), \(newCircle.radius)")
 
 //Video2
 //Optionals
