@@ -97,11 +97,11 @@ print("\(newCircle.x), \(newCircle.y), \(newCircle.radius)")
 //Video2
 //Optionals
 //We use optionals when we are not sure if something may or may not have a value
-//To understand optionals, we'll take the example of the "toInt" ethod of the String type
+//To understand optionals, we'll take the example of the "Int()" initializer which accepts a String parameter and returns an optional Int
 //Option click on convertedInt and you will see the type is Int?
 //It basically means that convertedInt can either have an int stored in it or it can be nil
 let  intAsString = "123"
-let convertedInt = intAsString.toInt()
+let convertedInt = Int(intAsString)
 
 //Try to set nil to a non-optional data type. You'll see that it is just not possible.
 //var something:String
@@ -114,26 +114,26 @@ theThing = 4.56
 //We can use an if statement and forced unwrapping to unwrap an optional
 //Force unwrapping an optional which is nil will cause a runtime error. Always use the if condition to be safe.
 if convertedInt != nil {
-    println("The actual number is \(convertedInt!)") //See the ! in front of the variable name. That's forced unwrapping.
+    print("The actual number is \(convertedInt!)") //See the ! in front of the variable name. That's forced unwrapping.
 }
 
 //Optional Binding
 //We use optional binding to check if an optional has a value and if it does, we store it in a temporary variable
 //I always put the "u" in front of the temporary variable so that I know it is the unwrapped variable.
 if let uConvertedInt = convertedInt {
-    println("The actual number is \(uConvertedInt)")
+    print("The actual number is \(uConvertedInt)")
 }
 else {
-    println("convertedInt is nil")
+    print("convertedInt is nil")
 }
 
-//Implicity unwrapped Optioanls
+//Implicity unwrapped Optionals
 //Sometimes, we might know for a fact that an optional will always have a value, and therefore, there's no need to check and unwrap the value every time we want to access it
 //Implicitly unwrapped optionals are declared with a ! rather than with ?
-//If somethingX was set to nil, the call to countElements would cause a runtime error.
-//Also notice that I do not have to unwrap the variable in the call to count() as the variable is implicitly unwrapped
+//If somethingX was set to nil, then trying to access it's characters and retreiving the length of the string would cause a runtime error.
+//Also notice that I do not have to unwrap the variable while accessing it's properties as the variable is implicitly unwrapped
 let somethingX:String! = "Hello!"
-count(somethingX) //As of Xcode 6.3 and Swift 1.2, countElements() has been replaced by count()
+somethingX.characters.count
 
 
 //Video3
