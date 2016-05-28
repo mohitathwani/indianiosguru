@@ -141,7 +141,7 @@ somethingX.characters.count
 //For e.g, the == operator can be used to compare strings.
 
 //Types of operators:
-//->Unary: work on a single operand. For e.g, !, ++, --
+//->Unary: work on a single operand. For e.g, !, ++, -- (Swift 2.2 deprecates the ++ and -- operators entirely)
 //->Binary: work on two operands. For e.g, +,-,*,/,%, etc
 //->Ternery: operates on three operands and there's only one sunch operator. For e.g, ?:
 
@@ -187,12 +187,12 @@ var isEven = (apple % 2 == 0) ? true : false
 
 //Closed range operator
 for currentNumber in 1...5 {
-    println("The current number is \(currentNumber)")
+    print("The current number is \(currentNumber)")
 }
 
 //Half-open range operator
 for currentNumber in 1..<5 {
-    println("The current number is \(currentNumber)")
+    print("The current number is \(currentNumber)")
 }
 
 //Logical Operators
@@ -201,22 +201,22 @@ for currentNumber in 1..<5 {
 //Logical AND : &&
 //Logical OR : ||
 if !isEven {
-    println("Not even")
+    print("Not even")
 }
 
 let hasApple = true
 let hasBananas = false
 
 if hasApple && hasBananas {
-    println("The grocery list is complete")
+    print("The grocery list is complete")
 } else {
-    println("You've missed something!")
+    print("You've missed something!")
 }
 
 if hasApple || hasBananas {
-    println("Either fruit is fine")
+    print("Either fruit is fine")
 } else {
-    println("You need atleast one fruit!")
+    print("You need atleast one fruit!")
 }
 
 //Video4
