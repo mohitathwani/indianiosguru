@@ -240,9 +240,9 @@ mutableString += " and Jill"
 
 //Characters
 //Swift strings are nothing but a collection of characters
-//We can use a for-in loop on a String to print it's characters individually
-for character in mutableString {
-    println(character)
+//We can use a for-in loop on the characters of a String to print it's characters individually
+for character in mutableString.characters {
+    print(character)
 }
 
 //We can also create stand-alone character constants or variables
@@ -265,8 +265,8 @@ let numDogs = 5
 let message = "I have \(numDogs) dogs"
 
 //Counting Characters
-//The global function count() is used to retrieve the number of characters in a string
-println("The length of combinedString is \(count(combinedString))")
+//The count property on the character array of strings is used to get the length of the string.
+print("The length of combinedString is \(combinedString.characters.count)")
 
 //Video5
 //Collection Types
