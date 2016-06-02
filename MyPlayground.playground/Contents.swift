@@ -285,10 +285,10 @@ let toBuyListLength = toBuyList.count
 
 //We can also use the Bool property "isEmpty" to quickly check whether an array is empty or not.
 if toBuyList.isEmpty {
-    println("You have nothing to buy!")
+    print("You have nothing to buy!")
 }
 else {
-    println("You have \(toBuyListLength) items to buy")
+    print("You have \(toBuyListLength) items to buy")
 }
 
 //To add an item to the end of an array:
@@ -309,12 +309,12 @@ toBuyList.removeAtIndex(3)
 //Iterating over an array:
 //We can use the for-in loop to iterate over an array:
 for item in toBuyList {
-    println(item)
+    print(item)
 }
 
-//If it is important for us to know the the index number of the elements, we can use the global enumerate() function which returns a tuple:
-for (index, value) in enumerate(toBuyList) {
-    println("\(index) -> \(value)")
+//If it is important for us to know the the index number of the elements, we can use the enumerate() function which returns a tuple:
+for (index, value) in toBuyList.enumerate() {
+    print("\(index) -> \(value)")
 }
 
 //Creating empty Arrays
@@ -330,13 +330,13 @@ intArray += [4,6,3]
 var person:[String:String] = ["name":"Steve", "lastName":"Jobs", "company":"Apple"]
 
 //We can count the number of key-value pairs using the count property
-println("There are \(person.count) key-value pairs")
+print("There are \(person.count) key-value pairs")
 
 //Similarly, we can also use the isEmpty property:
 if person.isEmpty {
-    println("person is empty")
+    print("person is empty")
 } else {
-    println("The person dictionary is not empty")
+    print("The person dictionary is not empty")
 }
 
 //To add a new key-value pair:
@@ -354,17 +354,17 @@ person["country"] = nil
 //Iterating over a dictionary:
 //Each key-value pair of a dictionary is returned as a tuple while using a for-in loop
 for (key, value) in person {
-    println("\(key) : \(value)")
+    print("\(key) : \(value)")
 }
 
 //If for some reason, we need to inspect the keys of a dictionary, we can use the "keys" property of the dictionary
 for key in person.keys {
-    println(key)
+    print(key)
 }
 
 //Similarly, we can use the "values" property to get only the values
 for value in person.values {
-    println(value)
+    print(value)
 }
 
 //Creating an empty dictionary
@@ -373,7 +373,7 @@ var intStrings = [String:Int]()
 //To add key-value pairs in a dictionary, we can use any of the techniques we have studied above
 intStrings["Zero"] = 0
 intStrings["One"] = 1
-println(intStrings)
+print(intStrings)
 
 //Video6
 //Control Flow Statments
