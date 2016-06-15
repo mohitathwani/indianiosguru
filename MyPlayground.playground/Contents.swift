@@ -388,31 +388,31 @@ print(intStrings)
 
 //The For-in loop
 for multiplier in 1...10 {
-    println("\(multiplier) times 3 is \(multiplier * 3)")
+    print("\(multiplier) times 3 is \(multiplier * 3)")
 }
 
 //The for-in loop can be used to iterate over elements in an array as seen before.
 //The for-in loop can also be used to iterate over characters of a string as seen before.
 
 //The For loop:
-//Swift also supports the traditional for loop.
-for var i = 0; i < 5; i++ {
-    println("The value of i is \(i)")
+//Swift no longer supports the traditional for loop and it will be completely removed in Swift 3.0. For ranges that do not include the upper bound, use the ..< operator
+for i in 0 ..< 5 {
+    print("The value of i is \(i)")
 }
 
 //While Loop:
 //While loop will check for condition first and then execute its contents.
 var i = 0
 while (i < 5) {
-    println(i)
-    i++
+    print(i)
+    i += 1
 }
 
-//Do-while loop:
-//Do-while will execute atleast once before checking the condition.
+//Repeat-while loop:
+//Repeat-while loop is analogous to the do-while loop in other traditional languages. It will execute atleast once before checking the condition. Apple chooses to call it repeat-while instead of do-while for making the working of the loop more consistent with it's name.
 var iA = -1
-do {
-println(iA)
+repeat {
+print(iA)
 } while(iA > 0)
 
 //Conditional Statements
@@ -421,24 +421,24 @@ println(iA)
 //If:
 //The if statement checks for a condition and if the condition evaluates to true, it will get executed. If not, the else block will get executed.
 if toBuyList.count < 3 {
-    println("You have few items left to buy")
+    print("You have few items left to buy")
 }
 
 else {
-    println("You're grocery list is pretty huge!")
+    print("You're grocery list is pretty huge!")
 }
 
 //We can also chain multiple if statements like so:
 if toBuyList.count < 3 {
-    println("List is small")
+    print("List is small")
 }
 
 else if toBuyList.count > 3 && toBuyList.count < 6 {
-    println("List is medium")
+    print("List is medium")
 }
 
 else {
-    println("The list is pretty big!")
+    print("The list is pretty big!")
 }
 
 //Switch Case
@@ -447,34 +447,34 @@ let randomCharacter = "m"
 switch randomCharacter {
     
     case "a", "e", "i", "o", "u":
-    println("Vowel")
+    print("Vowel")
     
     case "b", "c", "d", "f", "g", "h", "m":
-    println("Consonant")
+    print("Consonant")
     
     case "0", "1", "2":
-    println("Number")
+    print("Number")
     
 default:
-    println("Special Character")
+    print("Special Character")
 }
 
-//Compared to the Switch statements in C and other traditional languages, the switch in swift does not fall through if a break statement is not give.
+//Compared to the Switch statements in C and other traditional languages, the switch in swift does not fall through if a break statement is not given.
 
 //Switch cases in swift can also be used to check for ranges:
 switch toBuyList.count {
     
 case 0:
-    println("empty")
+    print("empty")
     
 case 1...3:
-    println("few")
+    print("few")
     
 case 4...8:
-    println("a lot")
+    print("a lot")
     
 default:
-    println("You really have a lot of shoppong to do!")
+    print("You really have a lot of shoppong to do!")
 }
 
 //The switch statement in swift can also match against tuples:
@@ -483,13 +483,13 @@ let ageheight = (22, 150)
 switch ageheight {
     
 case (20...22, 160...170):
-    println("The age-height ratio is normal")
+    print("The age-height ratio is normal")
     
 case (20...22, 140...159):
-    println("The height is abnormal")
+    print("The height is abnormal")
     
 default:
-    println("Please get yourself checked!")
+    print("Please get yourself checked!")
 }
 
 //Control Transfer Statements:
@@ -507,7 +507,7 @@ for i in 1...10 {
     if i % 2 != 0 {
         continue
     }
-    println(i)
+    print(i)
 }
 
 //Break:
@@ -516,7 +516,7 @@ for i in 1...5 {
     if i == 3 {
         break
     }
-    println(i)
+    print(i)
 }
 
 //Note: If you use break in a switch case, the control will be transferred to the statements outside the switch.
