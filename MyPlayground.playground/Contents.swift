@@ -525,7 +525,7 @@ for i in 1...5 {
 //Functions
 //Functions are self contained blocks of code that perform a certain task and allow us to re-use code.
 //Along with it's name, every function in Swift has it's own type. The type of a function is it's parameter types and it's return type. This unique feature of swift allows us to treat functions like any other objects.
-//Moreover, functions is Swift can also be nested within other functions to encapsulate usefule functionality.
+//Moreover, functions in Swift can also be nested within other functions to encapsulate usefull functionality.
 
 //Function Definition:
 //Functions can optionally have a set of inputs also called as parameters that the function internally uses to do some processing and optionally the function can have a return type to indicate that the function will return the result of the processing back to the line of code that "called" the function.
@@ -550,7 +550,8 @@ func sayHello(firstName:String, lastName:String) -> String {
 }
 
 //To call the above function and print it's result:
-println(sayHello("Amitabh", "Bachchan"))
+print(sayHello("Amitabh", lastName: "Bachchan"))
+//Swift 2.2 explicitly uses the parameter names from the function definition as a label (in this case, lastName) while calling the function to make the intent of the parameter more clear. Generally, the first parameter need not have the parameter label but you could include it if you like.
 
 //Functions without parameters:
 func sayGoodMorning() -> String {
@@ -560,7 +561,7 @@ func sayGoodMorning() -> String {
 //Functions without return values:
 func sayGoodAfternoon() {
     
-    println("Good Afternoon!")
+    print("Good Afternoon!")
 }
 
 //Calling the above functions:
@@ -577,23 +578,24 @@ func findFirstAndLast(array:[Int]) -> (first:Int, last:Int) {
 
 //To call the above function:
 let firstAndLast = findFirstAndLast([1,4,2,6,5,4])
-println("The first element is \(firstAndLast.first) and the last element is \(firstAndLast.last)")
+print("The first element is \(firstAndLast.first) and the last element is \(firstAndLast.last)")
 
 //Parameter Names:
 //All of the functions we have seen so far have defined parameter names. These prameter names are are only for local use within the scope of the function. This can cause ambiguity as we may not know the purpose of the parameters.
 //To solve this problem, we can use external parameter names to indicate the purpose of the argument.
+//But, as mentioned above Swift 2.2 automatically converts parameter names to external parameter names if none are provided. However, you could do the following for the sake of clarity in your code.
 //For example:
 func drawCircle(x: Double, y: Double, r:Double) {
 //    code to draw a circle
 }
 
-drawCircle(12.34, 3.8, 5.9)
+//drawCircle(12.34, 3.8, 5.9) Swift 2.2 does not allow calling functions in this way
 //When we call the drawCircle function, the purpose of the three arguments passed to it is unclear and leads to ambiguity in code.
 
 //To make our intent clear, we should use external parameter names.
 func drawCircle2 (atX x:Double, atY y:Double, radius r:Double) {
     
-    println("Drawing a circle at \(x),\(y) with radius \(r)")
+    print("Drawing a circle at \(x),\(y) with radius \(r)")
 }
 
 drawCircle2(atX: 3.5, atY: 4.2, radius: 8.9)
@@ -603,7 +605,7 @@ drawCircle2(atX: 3.5, atY: 4.2, radius: 8.9)
 //Parameters can have default values and we can omit the parameter while calling the function:
 func drawSquare(atX x:Double, atY y:Double, withSide side:Double = 3.0) {
     
-    println("Drawing a square at \(x),\(y) with side \(side)")
+    print("Drawing a square at \(x),\(y) with side \(side)")
 }
 
 drawSquare(atX: 0.0, atY: 0.0)
@@ -657,11 +659,11 @@ secondInt
 //And because of this special deature of Swift, we can pass functions as parameters to other functions and also return functions from functions.
 func specialFunc(paramFunction:(String, String) -> String, string1:String, string2:String) {
     
-    let x = paramFunction(string1, string2)
+    _ = paramFunction(string1, string2) //The return value of this function is assigned to _ to indicate that the return value is not being used.
 }
 
 //To call this function:
-specialFunc(sayHello, "Aishwarya", "Rai")
+specialFunc(sayHello, string1: "Aishwarya", string2: "Rai")
 
 //Similarly, functions can also return functions
 func anotherSpecialFunc() -> (String, String) -> String {
