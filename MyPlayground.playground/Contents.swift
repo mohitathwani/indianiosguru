@@ -680,7 +680,8 @@ returnedFunc("Aamir", "Khan")
 //Closures are self contained blocks of code that can be passed around as objects in code. To make things simpler to understand, think of closures as nameless functions.
 //Closures in swift can capture and retain references to objects, constants and variables from the context in which they are defined. Memory management for "capturing" the references is automatically handled for you.
 //In fact, all functions in Swift are special types of closures. Functions are named closures and may or may not capture values from the surrounding.
-//The standard library in Swift has a sorted function which takes in two parameters. One is an array that needs to be sorted and the other is a closure or an "inline function" that specifies the rules for sorting.
+//Arrays in Swift 2.2 have a sort() function which takes a closure or an "inline function" as parameter that specifies the rules for sorting.
+
 let marks = [50.5, 72.0, 88.5, 34.5, 93.0]
 
 //The closure that is passed to the sorted function has to be of the type: (Double, Double) -> Bool, beacuse we have an array Double
@@ -691,25 +692,25 @@ func descending(a:Double, b:Double) -> Bool {
     return a > b
 }
 
-var descendingArray = sorted(marks, descending)
+var descendingArray = marks.sort(descending)
 
 //Another way to achieve this is with the inline closure expression syntax:
-descendingArray = sorted(marks, { (a:Double, b:Double) -> Bool in
+descendingArray = marks.sort({ (a:Double, b:Double) -> Bool in
     return a > b
 })
 
-//Since Swift caninfer type from context, we don't need to specify the data type for the parameters a and b
-descendingArray = sorted(marks, { (a, b) -> Bool in
+//Since Swift can infer type from context, we don't need to specify the data type for the parameters a and b
+descendingArray = marks.sort({ (a, b) -> Bool in
     return a > b
 })
 
-//Swift knows that the sorted function is being called on an array of Doubles and can automatically infer the types of parameters a and b.
+//Swift knows that the sort() function is being called on an array of Doubles and can automatically infer the types of parameters a and b.
 
 //Swift also has another syntax for shorthand argument names.
 //These shorthand arguments are referenced by the $ sign and a zero based index.
 //For example, if the closure is expected to have 3 parameters, the shorthand names would be: $0, $1, $2
 //Now, the descendingArray can be written as:
-descendingArray = sorted(marks, {$0 > $1})
+descendingArray = marks.sort({$0 > $1})
 
 //Trailing Closures
 //If the last and final parameter of a function is a closure, then we can use the trailing closure syntax. A trailing closure will be written outside the closing paranthesis of the function to which it belongs.
@@ -718,12 +719,12 @@ func doSomethingWithClosures(a:Int, b:Double, closure:() -> ()) {
 }
 
 //The traditional way of calling this function is:
-doSomethingWithClosures(2, 3.14) { () -> () in
+doSomethingWithClosures(2, b: 3.14) { () -> () in
     //do someting in the closure!
 }
 
 //With the trailing closure syntax, we call this function as:
-doSomethingWithClosures(2, 3.14) {
+doSomethingWithClosures(2, b: 3.14) {
     //closure code in here
 }
 
