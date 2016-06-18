@@ -768,25 +768,25 @@ var explicitCarType: Car = .Hyundai
 switch myFavouriteCar {
     
 case .Tata: // Notice the dot.
-    println("Tata")
+    print("Tata")
     
 case .Honda:
-    println("Honda")
+    print("Honda")
     
 case .Hyundai:
-    println("Hyundai")
+    print("Hyundai")
     
 case .Mercedes:
-    println("Mercedes")
+    print("Mercedes")
 }
 
 //As seen in one of our previous videos, a Switch-case must be exhaustive, i.e, all the possible "cases" must be explicitly written out. If for some reason, all "cases" cannot be listed, we must put in a default clause.
 switch myFavouriteCar {
 case .Tata:
-    println("You like Indian cars!")
+    print("You like Indian cars!")
     
 default:
-    println("You like foreign cars!")
+    print("You like foreign cars!")
 }
 
 //Associated Values
@@ -807,16 +807,16 @@ var myFavCar2 = Car2.Tata("Nano", 2015)
 switch myFavCar2 {
     
 case .Tata(let model, let year):
-    println("You like the Tata \(model), \(year)")
+    print("You like the Tata \(model), \(year)")
     
 case .Honda(let model, let year):
-    println("You like the Honda \(model), \(year)")
+    print("You like the Honda \(model), \(year)")
     
 case .Hyundai(let model, let year):
-    println("You like the Hyundai \(model), \(year)")
+    print("You like the Hyundai \(model), \(year)")
     
 case .Mercedes(let model, let year):
-    println("You like the Mercedes \(model), \(year)")
+    print("You like the Mercedes \(model), \(year)")
 }
 
 //Raw Values
@@ -838,10 +838,10 @@ let someDay = Day(rawValue: 6)
 switch someDay! {
     
 case .Saturday:
-    println("Saturday")
+    print("Saturday")
     
 default:
-    println("Blah!")
+    print("Blah!")
     
 }
 
@@ -879,7 +879,7 @@ let somePhotograph = Photograph()
 //Interacting with Properties
 //We can start interacting with properties after we have created an instance of the class or structure.
 //We use the dot syntax to interact with properties.
-println("The width of the photograph is \(somePhotograph.dimension.width), height is \(somePhotograph.dimension.height), ppi is \(somePhotograph.dimension.ppi), name is \(somePhotograph.name), and grey scale is \(somePhotograph.isGreyScale)")
+print("The width of the photograph is \(somePhotograph.dimension.width), height is \(somePhotograph.dimension.height), ppi is \(somePhotograph.dimension.ppi), name is \(somePhotograph.name), and grey scale is \(somePhotograph.isGreyScale)")
 
 //The above example shows us how to get the values stored in the properties. Let's take a look at how to set them.
 //To set the values of the properties, we first use the dot syntax to access the property and then use the = operator to set the value.
@@ -888,7 +888,7 @@ somePhotograph.dimension.height = 960
 somePhotograph.dimension.ppi = 72
 somePhotograph.name = "Wallpaper.jpg"
 
-println("The width of the photograph is \(somePhotograph.dimension.width), height is \(somePhotograph.dimension.height), ppi is \(somePhotograph.dimension.ppi), name is \(somePhotograph.name!), and grey scale is \(somePhotograph.isGreyScale)")
+print("The width of the photograph is \(somePhotograph.dimension.width), height is \(somePhotograph.dimension.height), ppi is \(somePhotograph.dimension.ppi), name is \(somePhotograph.name!), and grey scale is \(somePhotograph.isGreyScale)")
 
 //Initialising structures with "Member wise" initialisers
 //All structures by default have a member wise initialiser which can be used to create and initialise the struct in one line of code itself.
@@ -901,25 +901,25 @@ let fullHD = Dimension(width: 1920, height: 1080, ppi: 326)
 var modifiedFullHD = fullHD
 modifiedFullHD.width = 1200
 
-println("fullHD width is \(fullHD.width) and modifiedFullHD width is \(modifiedFullHD.width)")
+print("fullHD width is \(fullHD.width) and modifiedFullHD width is \(modifiedFullHD.width)")
 
 //Classes are "Passed by Reference"
 //When instancesof classes are assigned to a new constant or variable or passed as an argument to a function, they are not copied, but instead a reference to the existing instance is passed.
 let anotherPhotograph = somePhotograph
 anotherPhotograph.name = "Swift.png"
 
-println("somePhotograph name is \(somePhotograph.name!) and anotherPhotograph name is \(anotherPhotograph.name!)")
+print("somePhotograph name is \(somePhotograph.name!) and anotherPhotograph name is \(anotherPhotograph.name!)")
 
 //Both will now print the same value since instances of classes are passed by reference.
 
 //Identity Operators for Classes
 //Since classes are reference types, it's possible that multiple constants and variables in our code are pointing to the same reference. There are special identity operators for classes that help us determine if multiple constants/variables are pointing to the same instance.
 if somePhotograph === anotherPhotograph {
-    println("Both point to the same instance")
+    print("Both point to the same instance")
 }
 
 if somePhotograph !== anotherPhotograph {
-    println("Both are pointing to different instances")
+    print("Both are pointing to different instances")
     
 }
 
