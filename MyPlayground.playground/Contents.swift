@@ -958,7 +958,7 @@ class RSSFetcher {
     
     func fetchRSS() {
         rssArray = someComplexLogic()
-        println(rssArray)
+        print(rssArray)
     }
 }
 //It's obvious that lazy properties should be variables and not constants because their values will change.
@@ -986,10 +986,10 @@ struct  Circle {
 
 var circleX = Circle()
 circleX.radius = 5.6
-println("Area: \(circleX.area)")
+print("Area: \(circleX.area)")
 
 circleX.area = 89.5
-println("Radius: \(circleX.radius)")
+print("Radius: \(circleX.radius)")
 //From the above example, it is obvious that computed properties should be declared as variables and not constants.
 //We can also have read-only computed properties by only implementing the getter and not the setter.
 
@@ -1004,11 +1004,11 @@ class CalorieCounter {
     
     var totalCalorieIntake: Int = 0 {
         willSet {
-            println("The new value is \(newValue)")
+            print("The new value is \(newValue)")
         }
         
         didSet {
-            println("The old value is \(oldValue)")
+            print("The old value is \(oldValue)")
         }
     }
 }
@@ -1034,8 +1034,8 @@ class ChessBoardClass {
     }
 }
 
-println(ChessBoardStruct.numOfTiles)
-println(ChessBoardClass.numOFTiles)
+print(ChessBoardStruct.numOfTiles)
+print(ChessBoardClass.numOFTiles)
 
 
 
