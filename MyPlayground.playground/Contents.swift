@@ -656,7 +656,7 @@ secondInt
 //(Int, Int) -> ()
 //For the average function:
 //(Int...) -> Double
-//And because of this special deature of Swift, we can pass functions as parameters to other functions and also return functions from functions.
+//And because of this special feature of Swift, we can pass functions as parameters to other functions and also return functions from functions.
 func specialFunc(paramFunction:(String, String) -> String, string1:String, string2:String) {
     
     _ = paramFunction(string1, string2) //The return value of this function is assigned to _ to indicate that the return value is not being used.
@@ -719,9 +719,9 @@ func doSomethingWithClosures(a:Int, b:Double, closure:() -> ()) {
 }
 
 //The traditional way of calling this function is:
-doSomethingWithClosures(2, b: 3.14) { () -> () in
+doSomethingWithClosures(2, b: 3.14, closure: { () -> () in
     //do someting in the closure!
-}
+})
 
 //With the trailing closure syntax, we call this function as:
 doSomethingWithClosures(2, b: 3.14) {
@@ -867,7 +867,7 @@ class Photograph {
 //The structure has three "stored properties" called width, height and ppi.
 //Stored properties are basically constants or variables that are stored as part of the class or structure and are generally initialised with an initial value.
 //The three properties in the Dimension struct are inferred to be of type Int because they are initialised to zero.
-//The class also has three stores properties, the dimension property is initialised with a new Dimension structure instance using the initialiser syntax.
+//The class also has three stored properties, the dimension property is initialised with a new Dimension structure instance using the initialiser syntax.
 //The name property is initialised to nil as it is a string optional and isGreyScale is inferred to be of type Bool because it is initialised to false.
 
 //Creating Instances
@@ -896,7 +896,7 @@ let fullHD = Dimension(width: 1920, height: 1080, ppi: 326)
 
 //Note: This is not applicable for Classes
 
-//Structures and Enumas are "Passed by Value"
+//Structures and Enums are "Passed by Value"
 //This basically means that if structures or enums are passed around from one object to another, or passed as arguments to functions, the value of the structure or enum will be "copied" and all operations will be performed on the local copy.
 var modifiedFullHD = fullHD
 modifiedFullHD.width = 1200
@@ -904,7 +904,7 @@ modifiedFullHD.width = 1200
 print("fullHD width is \(fullHD.width) and modifiedFullHD width is \(modifiedFullHD.width)")
 
 //Classes are "Passed by Reference"
-//When instancesof classes are assigned to a new constant or variable or passed as an argument to a function, they are not copied, but instead a reference to the existing instance is passed.
+//When instances of classes are assigned to a new constant or variable or passed as an argument to a function, they are not copied, but instead a reference to the existing instance is passed.
 let anotherPhotograph = somePhotograph
 anotherPhotograph.name = "Swift.png"
 
